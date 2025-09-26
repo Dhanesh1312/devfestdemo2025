@@ -12,3 +12,7 @@ steps:
   - --runtime=dotnet8
   - --allow-unauthenticated
   - --base-image=dotnet8
+
+
+options:
+  logging: CLOUD_LOGGING_ONLY
