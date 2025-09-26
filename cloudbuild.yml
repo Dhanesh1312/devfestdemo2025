@@ -1,23 +1,4 @@
 steps:
-- name: mcr.microsoft.com/dotnet/sdk:8.0
-  entrypoint: bash
-  args:
-    - -c
-    - |
-      echo "Restoring .NET dependencies..."
-      dotnet restore
-
-  # Build & publish
-- name: mcr.microsoft.com/dotnet/sdk:8.0
-  entrypoint: bash
-  args:
-    - -c
-    - |
-      echo "Building in Release mode..."
-      dotnet build --configuration Release
-      echo "Publishing output..."
-      dotnet publish --configuration Release --output ./published --no-restore
-
 
 - name: 'gcr.io/cloud-builders/gcloud'
   args:
@@ -31,25 +12,6 @@ steps:
   - --trigger-http
   - --runtime=dotnet8
   - --allow-unauthenticated
-
-# - name: gcr.io/google.com/cloudsdktool/cloud-sdk:slim
-#   entrypoint: gcloud
-#   args:
-#     - run
-#     - deploy
-#     - devfest_demo2025           # replace with your function name
-#     - --region
-#     - europe-west1                  # e.g. us-central1
-#     - --source
-#     - .
-#     - --function
-#     - devfestdemo2025.Function     # the entry point class name
-#     - --base-image
-#     - dotnet8
-#     - --timeout
-#     - "600"                         # optional, 10 min in seconds
-#     - --no-allow-unauthenticated
-
 
 options:
   logging: CLOUD_LOGGING_ONLY
