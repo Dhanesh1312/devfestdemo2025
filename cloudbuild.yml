@@ -24,7 +24,7 @@ steps:
   - functions
   - deploy
   - devfestdemo2025
-  - --source=./published
+  - --source=.
   - --entry-point=devfestdemo2025.Function
   - --gen2
   - --region=europe-west1
@@ -32,23 +32,23 @@ steps:
   - --runtime=dotnet8
   - --allow-unauthenticated
 
-- name: gcr.io/google.com/cloudsdktool/cloud-sdk:slim
-  entrypoint: gcloud
-  args:
-    - run
-    - deploy
-    - devfest_demo2025           # replace with your function name
-    - --region
-    - europe-west1                  # e.g. us-central1
-    - --source
-    - .
-    - --function
-    - devfestdemo2025.Function     # the entry point class name
-    - --base-image
-    - dotnet8
-    - --timeout
-    - "600"                         # optional, 10 min in seconds
-    - --no-allow-unauthenticated
+# - name: gcr.io/google.com/cloudsdktool/cloud-sdk:slim
+#   entrypoint: gcloud
+#   args:
+#     - run
+#     - deploy
+#     - devfest_demo2025           # replace with your function name
+#     - --region
+#     - europe-west1                  # e.g. us-central1
+#     - --source
+#     - .
+#     - --function
+#     - devfestdemo2025.Function     # the entry point class name
+#     - --base-image
+#     - dotnet8
+#     - --timeout
+#     - "600"                         # optional, 10 min in seconds
+#     - --no-allow-unauthenticated
 
 
 options:
