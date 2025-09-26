@@ -6,7 +6,7 @@ steps:
   - devfest_demo2025
   - --source=.
   - --entry-point=devfestdemo2025.Function
-  - --gen2
+  - --no-gen2
   - --region=europe-west1
   - --trigger-http
   - --runtime=dotnet8
