@@ -1,0 +1,13 @@
+steps:
+- name: 'gcr.io/cloud-builders/gcloud'
+  args:
+  - functions
+  - deploy
+  - devfest_demo2025
+  - --source=.
+  - --gen2
+  - --region=europe-west1
+  - --trigger-http
+  - --runtime=dotnet8
+  - --allow-unauthenticated
+  - --base-image=dotnet8
