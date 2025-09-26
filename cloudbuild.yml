@@ -5,6 +5,7 @@ steps:
   - deploy
   - devfest_demo2025
   - --source=.
+  - --entry-point=devfestdemo2025.Function
   - --gen2
   - --region=europe-west1
   - --trigger-http
